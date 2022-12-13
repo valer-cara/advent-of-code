@@ -2,4 +2,6 @@ Attempting to write these solutions in clojure.
 
 See https://github.com/rjray/advent-2020-clojure for older solutions, esp. on clojure workflow.
 
+https://github.com/Bogdanp/awesome-advent-of-code#clojure <- more solutions
+
 See [[https://github.com/rjray/advent-2020-clojure#links][Related repos]] linked above. Some use clojure notebooks!
