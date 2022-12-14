@@ -5,3 +5,13 @@ Other Clojure solutions for inspiration:
 - https://github.com/Bogdanp/awesome-advent-of-code#clojure
 
 See [[https://github.com/rjray/advent-2020-clojure#links][Related repos]] from the link above. Some use clojure notebooks!
+
+* plan
+** TODO =deftest= using example input from problem statement
+- State "TODO"       from              [2022-12-14 Wed 09:24]
+https://github.com/rjray/advent-2020-clojure/blob/master/test/advent_of_code/day01_test.clj
+
+** TODO find a better structure for passing input
+- State "TODO"       from              [2022-12-14 Wed 09:24]
+https://github.com/Bogdanp/awesome-advent-of-code#clojure
+
