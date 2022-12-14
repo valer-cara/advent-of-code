@@ -20,9 +20,10 @@
 (assert (= (revprio (prio \m)) \m))
 (assert (= (revprio (prio \M)) \M))
 
+;; encode encodes the Prio and the position as a single number
+;; by appending a 0/1 digit indicating whther it's on the left
 (defn encode [pr left]
-  ;; NOTE: cond-> is my favorite function so far!
-  (cond-> (* 10 pr) left inc))
+  (cond-> (* 10 pr) left inc)) ;; NOTE: cond-> is my favorite function so far!
 
 (def encode-all (fn [len idx val]
                   (encode (prio val) (< idx (/ len 2)))))
@@ -31,7 +32,7 @@
 (def reduce-consecutive
   (fn [acc val]
     (if (= val (inc acc))
-      (reduced (int (/ val 10)))
+      (reduced (int (/ val 10))) ;; divide by 10 reverse the encoding
       val)))
 
 (comment 
@@ -54,4 +55,4 @@
   (apply + (map solve-single input)))
 
 #_(solve)
-;; => 7917
+
