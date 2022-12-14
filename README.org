@@ -1,7 +1,7 @@
-Attempting to write these solutions in clojure.
+Attempting to write these solutions in Clojure. Plenty rookie.
 
-See https://github.com/rjray/advent-2020-clojure for older solutions, esp. on clojure workflow.
+Other Clojure solutions for inspiration:
+- https://github.com/rjray/advent-2020-clojure
+- https://github.com/Bogdanp/awesome-advent-of-code#clojure
 
-https://github.com/Bogdanp/awesome-advent-of-code#clojure <- more solutions
-
-See [[https://github.com/rjray/advent-2020-clojure#links][Related repos]] linked above. Some use clojure notebooks!
+See [[https://github.com/rjray/advent-2020-clojure#links][Related repos]] from the link above. Some use clojure notebooks!
