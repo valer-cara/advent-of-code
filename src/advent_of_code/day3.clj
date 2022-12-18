@@ -1,5 +1,6 @@
 (ns advent-of-code.day3
-  (:require [clojure.string :as str]))
+  (:require [clojure.string :as str]
+            [clojure.tools.trace :refer :all]))
 
 (def input (str/split (slurp "./src/advent_of_code/day3.input.txt") #"\n"))
 
@@ -43,16 +44,46 @@
   (reduce reduce-consecutive
           (sort (map-indexed (partial encode-all (count in)) in))))
 
-(comment
-  (revprio (solve-single "vJrwpWtwJgWrhcsFMMfFFhFp"))
-  (revprio (solve-single "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL"))
-  (revprio (solve-single "PmmdzqPrVvPwwTWBwg"))
-  (revprio (solve-single "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn"))
-  (revprio (solve-single "ttgJtRGJQctTZtZT"))
-  (revprio (solve-single "CrZsJsPPZsGzwwsLwLmpwMDw")))
+(assert (= (revprio (solve-single "vJrwpWtwJgWrhcsFMMfFFhFp")) \p))
 
-(defn solve []
+(defn solve-p1 []
   (apply + (map solve-single input)))
 
-#_(solve)
+#_(solve-p1)
+
+                                        ; Part 2
+
+;; Things I learned
+;; Key functions:
+;; - group-by
+;; - partition (see related partition-by: really interesting)
+;;
+;; Ideas
+;; - when threading, use double paren around ((partial ...)) because the threading macro splits the partial otherwise
+;;   https://stackoverflow.com/questions/29188854/the-macro-and-partial-function
+;;
+;; Debugging
+;; - use #break in cider to insert a breakpoint in a form
+;; - see more https://valer.dev/posts/clojure-debugging/
+
+(defn mapper [coll]
+  (-> coll ((partial group-by prio)) keys))
+
+(defn find-badge [items]
+  ;; return the key of the first found element (ehh..)
+  (first (first
+    (filter #(= (count (second %)) 3) items))))
+
+(find-badge {8 [8 8], 10 [10 10 10]})
+
+(defn solve-group [group]
+  (find-badge
+  (group-by identity 
+            (apply concat (map mapper group)))))
+
+
+(defn solve-p2 []
+  (apply + (map solve-group (partition 3 input))))
+
+#_(solve-p2)
 
